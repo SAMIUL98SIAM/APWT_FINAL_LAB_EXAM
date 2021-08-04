@@ -3,6 +3,7 @@ import { useState } from "react";
 import EmployeeList from "./components/EmployeeList";
 import JobList from "./components/JobList";
 import Navbar from "./components/Navbar";
+import Login from "./components/Login";
 import AddEmployee from "./components/AddEmployee";
 import AddJob from "./components/AddJob";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -14,6 +15,7 @@ import {
     deleteJob,
     updateEmployee,
     updateJob,
+    login,
 } from "./components/useFetch";
 import { list } from "./List";
 
@@ -54,9 +56,14 @@ function App() {
         setEmp(data);
     };
 
+    const userLogin = (data) => {
+        login(data);
+    };
+
     return (
         <Router>
             <Navbar />
+            {/* <Login callback={userLogin} /> */}
             <Switch>
                 <Route exact path="/">
                     <h2>Welcome Home</h2>
@@ -68,7 +75,7 @@ function App() {
                 </Route>
                 <Route path="/jobList">
                     <div>
-                        <JobList list={emp} callback={deleteAJob} />
+                        <JobList list={job} callback={deleteAJob} />
                     </div>
                 </Route>
                 <Route path="/createEmployee">

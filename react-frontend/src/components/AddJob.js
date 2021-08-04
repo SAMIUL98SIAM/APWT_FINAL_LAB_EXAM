@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const AddJob = ({ status, callback }) => {
-    const { id: eid } = useParams();
+    const { id: jid } = useParams();
     const [user, setUser] = useState({
         title: "",
         location: "",
@@ -21,7 +21,7 @@ const AddJob = ({ status, callback }) => {
     const onSubmit = (e) => {
         e.preventDefault();
         callback(user);
-        history.push("/employeelist");
+        history.push("/jobList");
     };
 
     return (
